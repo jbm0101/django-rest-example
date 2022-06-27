@@ -1,4 +1,5 @@
 from djongo import models
+from django.core.validators import RegexValidator
 
 class Item(models.Model):
     
@@ -29,8 +30,13 @@ class Item(models.Model):
         # get included in some other higher level model or class.
 
 class Order(models.Model):
-    email = models.EmailField(primary_key = True, name = "email") 
+    email = models.EmailField(name = "email") 
     name = models.CharField(max_length = 30, help_text="Enter Customer Name", name = "name")
+    
+    # modified CharField to validate mobile numbers upto 15 digits.
+    phoneNumberRegex = RegexValidator(regex = r"^\+?1?\d{8,15}$")
+    mobile = models.CharField(primary_key = True, validators = [phoneNumberRegex], max_length = 15, blank = False)
+    
     address = models.CharField(max_length = 250, help_text="Enter customer's Address", name = "address")
      
     # to create array containing objects of other 

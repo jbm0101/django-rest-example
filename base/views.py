@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import OrderSerializer
@@ -43,8 +44,33 @@ def get_orders(request):
     return Response(data = data)
 
 @api_view(['GET',])
-def get_orders(request, pk):
-    orders = Order.objects.get(id = pk)
+def get_order(request, pk):
+    orders = Order.objects.get(mobile = pk)
     serializer = OrderSerializer(orders, many = False)
     data = serializer.data
     return Response(data = data)
+
+@api_view(['POST',])
+def create_order(request):
+    data = request.data
+    order = Order.objects.create(**data)
+    serializer = OrderSerializer(order, many = False)
+    return Response(data = serializer.data)
+
+@api_view(['PUT',])
+def update_order(request, pk):
+    order = Order.objects.get(mobile = pk)
+    serializer = OrderSerializer(order, data = request.POST)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data) 
+
+@api_view(['DELETE',])
+def delete_order(request, pk):
+    order = Order.objects.get(mobile = pk)
+    order.delete()
+    return Response("Order was Deleted", status = 204)
+
+def render_order(request, pk):
+    order = Order.objects.get(mobile = pk)
+    return render(request, 'order.html', {'order':order})

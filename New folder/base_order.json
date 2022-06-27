@@ -1,0 +1,61 @@
+[
+  {
+    "email": "himanshu@gmail.com",
+    "name": "Himanshu Maiyani",
+    "address": "B-4-102, Gadhpur Township",
+    "mobile": "9888888888",
+    "items": [
+      {
+        "item_name": "watch",
+        "item_quantity": 5,
+        "item_price": 5000
+      },
+      {
+        "item_name": "earphone",
+        "item_quantity": 2,
+        "item_price": 995.5
+      }
+    ]
+  },
+  {
+    "email": "jayesh@gmail.com",
+    "name": "Jayesh Maiyani",
+    "address": "C-1-103, Gadhpur Township",
+    "mobile": "9872888872",
+    "items": [
+      {
+        "item_name": "pencil",
+        "item_quantity": 10,
+        "item_price": 35
+      },
+      {
+        "item_name": "books",
+        "item_quantity": 12,
+        "item_price": 600
+      },
+      {
+        "item_name": "school bag",
+        "item_quantity": 1,
+        "item_price": 800
+      }
+    ]
+  },
+  {
+    "email": "rashvin@gmail.com",
+    "name": "Rashvin Kathiriya",
+    "mobile": "9884545898",
+    "address": "D-402, Kanha Raas valley",
+    "items": [
+      {
+        "item_name": "Acer predator laptop",
+        "item_quantity": 1,
+        "item_price": 85000
+      },
+      {
+        "item_name": "iPhone 13 pro max",
+        "item_quantity": 2,
+        "item_price": 125000
+      }
+    ]
+  }
+]
